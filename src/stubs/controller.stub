@@ -9,7 +9,9 @@ class {{creature}}Controller extends Controller
 {
     public function index()
     {
-        return view('{{creature}}.index');
+    	${{creature}} = {{className}}::all();
+
+        return view('{{creature}}.index', compact('{{creature}}'));
     }
 
     public function create()
