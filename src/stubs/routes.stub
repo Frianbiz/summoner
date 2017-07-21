@@ -1,0 +1,4 @@
+
+Route::get('/{{creature}}', '{{creature}}Controller@index');
+Route::get('/{{creature}}/create', '{{creature}}Controller@create');
+Route::post('/{{creature}}', '{{creature}}Controller@store');

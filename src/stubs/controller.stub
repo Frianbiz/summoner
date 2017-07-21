@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\{{className}};
+use Illuminate\Http\Request;
+
+class {{creature}}Controller extends Controller
+{
+    public function index()
+    {
+        return view('{{creature}}.index');
+    }
+
+    public function create()
+    {
+        return view('{{creature}}.create');
+    }
+
+    public function store(Request $request)
+    {
+    	{{className}}::create($request->all());
+
+        return redirect('/{{creature}}');
+    }
+}

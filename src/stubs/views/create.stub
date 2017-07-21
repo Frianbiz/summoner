@@ -1,0 +1,6 @@
+<form action="/{{pluralCamel}}" method="POST">
+	{{ csrf_field() }}
+	
+	{{fields}}
+	<button type="submit">Save</button>
+</form>

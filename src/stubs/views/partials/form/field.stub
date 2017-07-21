@@ -1,0 +1,4 @@
+<div class="form-group">
+	<label>{{fieldName}}</label>
+	<input type="{{fieldType}}" name="{{fieldName}}" class="form-control">
+</div>

@@ -1,0 +1,30 @@
+{
+    "name": "frianbiz/summoner",
+    "type": "library",
+    "description": "Summon",
+    "keywords": ["summon","admin"],
+    "homepage": "https://github.com/Seldaek/monolog",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joe Boureslan",
+            "email": "jbo@frianbiz.com",
+            "homepage": "https://www.frianbiz.com/",
+            "role": "Developer (hand on shoulder guy)"
+        },
+        {
+            "name": "Benjamin Payoux",
+            "email": "bpa@frianbiz.com",
+            "homepage": "https://www.frianbiz.com/",
+            "role": "Developer (thumbs up guy)"
+        }
+    ],
+    "require": {
+        "illuminate/support": "~5.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Frianbiz\\Summoner\\": "src/"
+        }
+    }
+}
