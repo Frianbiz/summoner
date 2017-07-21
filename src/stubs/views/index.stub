@@ -1,1 +1,14 @@
 Hello this is the index of your {{creature}}
+
+<table>
+	<thead>
+		{{thead}}
+	</thead>
+	<tbody>
+		@forelse (${{pluralSnake}} as ${{singularSnake}})
+			{{tbody}}
+		@empty
+			No {{creature}}
+		@endforelse
+	</tbody>
+</table>

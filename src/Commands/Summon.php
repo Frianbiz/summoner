@@ -89,9 +89,29 @@ class Summon extends Command
     {
         // generateIndex
         // generateCreate
+        $thead = '<tr>';
+        foreach ($this->fields as $field)
+        {
+            $thead .= "<th>{$field['name']}</th>\r";
+        }
+        $thead .= '</tr>';
+        $tbody = '<tr>';
+        foreach ($this->fields as $field)
+        {
+            $tbody .= '<td>{{$'.str_singular($this->creature)."->".$field['name']."}}</td>";
+        }
+        $tbody .= '</tr>';
+
+        $index = file_get_contents(__DIR__.'/../stubs/views/index.stub');
+        $index = str_replace('{{thead}}', $thead, $index);
+        $index = str_replace('{{tbody}}', $tbody, $index);
+        $index = str_replace('{{creature}}', $this->creature, $index);
+        $index = str_replace('{{pluralSnake}}', $this->creature, $index);
+        $index = str_replace('{{singularSnake}}', str_singular($this->creature), $index);
+
         file_put_contents(
             resource_path('views/'.$this->creature.'/index.blade.php'),
-            $this->compileViewStub(__DIR__.'/../stubs/views/index.stub')
+            $index
         );
 
         $fields = '';
@@ -101,6 +121,10 @@ class Summon extends Command
                 $fields .= file_get_contents(__DIR__.'/../stubs/views/partials/form/field.stub');
                 $fields = str_replace('{{fieldName}}', $field['name'], $fields);
                 $fields = str_replace('{{fieldType}}', 'text', $fields);
+            } elseif ($field['type'] == 'integer') {
+                $fields .= file_get_contents(__DIR__.'/../stubs/views/partials/form/field.stub');
+                $fields = str_replace('{{fieldName}}', $field['name'], $fields);
+                $fields = str_replace('{{fieldType}}', 'number', $fields);
             }
         }
 
